@@ -1,0 +1,123 @@
+:root {
+  /*fonts*/
+  --text-font-light: 'JosefinSans Light', sans-serif;
+  --text-font-regular: 'JosefinSans Regular', sans-serif;
+  --text-font-bold: 'JosefinSans Bold', sans-serif;
+  --text-font-extra-bold: 'JosefinSans Extra Bold', sans-serif;
+  --text-font-black: 'JosefinSans Black', sans-serif;
+
+  --text-font-title: 'YesevaOne Regular', sans-serif;
+
+  /*sizes*/
+  --text-size-body: 1.7rem;
+  --text-size-large-body: 2.2rem;
+  --text-size-callout: 1.6rem;
+  --text-size-caption-1: 1.2rem;
+  --text-size-caption-2: 1.1rem;
+  --text-size-footnote: 1.3rem;
+
+  --text-size-overline: 1.5rem;
+  --text-size-headline: 1.7rem;
+  --text-size-subheadline: 1.5rem;
+
+  --text-size-display-title: 9.6rem;
+  --text-size-large-display-title: 11.4rem;
+
+  --text-size-title-1: 3.4rem;
+  --text-size-title-2: 2.2rem;
+  --text-size-title-3: 2.0rem;
+  --text-size-title-4: 5.4rem;
+}
+
+.text {
+  color: var(--color-black);
+
+  &.-lighter {
+    font-weight: 100;
+  }
+
+  &.-light {
+    font-weight: 300;
+  }
+
+  &.-bold {
+    font-weight: 600;
+  }
+
+  &.-extra-bold {
+    font-weight: 700;
+  }
+
+  &.-black {
+    font-weight: 900;
+  }
+}
+
+.text {
+  &.-large-body {
+    font-size: var(--text-size-large-body);
+  }
+
+  &.-body {
+    font-size: var(--text-size-body);
+  }
+
+  &.-callout {
+    font-size: var(--text-size-callout);
+  }
+
+  &.-caption-1 {
+    font-size: var(--text-size-caption-1);
+  }
+
+  &.-caption-2 {
+    font-size: var(--text-size-caption-2);
+  }
+
+  &.-footnote {
+    font-size: var(--text-size-footnote);
+  }
+
+  &.overline {
+    font-size: var(--text-size-overline);
+  }
+
+  &.-headline {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-headline);
+  }
+
+  &.-subheadline {
+    font-size: var(--text-size-subheadline);
+  }
+
+  &.-display-title {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-display-title);
+  }
+
+  &.-large-display-title {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-large-display-title);
+  }
+
+  &.-title-1 {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-title-1);
+  }
+
+  &.-title-2 {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-title-2);
+  }
+
+  &.-title-3 {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-title-3);
+  }
+
+  &.-title-4 {
+    font-family: var(--text-font-title);
+    font-size: var(--text-size-title-4);
+  }
+}

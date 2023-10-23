@@ -1,0 +1,83 @@
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+:root {
+  // Primary --------------------
+  --color-primary: #F8963F;
+  --color-red-rgba: #{hexToRGB(#FF8F88)};
+
+  // Secondary ----------------
+
+  // Main Colors --------------------
+  --color-black: #292929;
+  --color-light: #FFFDF8;
+  --color-grey: #3F3F3F;
+
+  // Background --------------
+  --color-background: #FFFBEF;
+
+  --map-fill:  #292929;
+  --map-stroke:  #FFFDF8;
+
+  --map-dot-color: #FFFBEF;
+
+
+  --color-actions-background: #292929;
+  --color-actions-text: #FFFDF8;
+
+  --color-stats-background: #fffae5;
+  --color-heading-footer-polygon: #CFC1C1;
+  --footer-border-color: #EBEBEB;
+}
+
+:root.dark-theme {
+  // Primary --------------------
+  --color-primary: #F8963F;
+
+  // Secondary ----------------
+
+  // Main Colors --------------------
+  --color-black: #FFFDF8;
+  --color-light: #292929;
+
+  // Background --------------
+  --color-background: #292929;
+
+  --map-dot-color: #FFFBEF;
+  --map-fill:  transparent;
+  --map-stroke:  #FFFDF8;
+  --color-actions-background: #2e2d2d;
+  --color-actions-text: #FFFDF8;
+
+
+  --color-stats-background: #2e2d2d;
+  --color-heading-footer-polygon: #686868;
+
+}
+
+$types: 'primary', 'black', 'light', 'background';
+
+@each $type in $types {
+  .color-#{$type} {
+    color: var(--color-#{$type}),
+  }
+  .background-color-#{$type} {
+    background-color: var(--color-#{$type}),
+  }
+
+  .outline-color-#{$type} {
+    box-shadow: inset 0 0 0 0.2rem var(--color-#{$type}),
+  }
+
+  .icon-fill-color-#{$type} {
+    path {
+      fill: var(--color-#{$type}),
+    }
+  }
+  .icon-stroke-color-#{$type} {
+    path {
+      stroke: var(--color-#{$type}),
+    }
+  }
+}

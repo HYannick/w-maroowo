@@ -1,0 +1,10 @@
+{
+  "id": "footer_navigation",
+  "label": "Footer Navigation",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}
