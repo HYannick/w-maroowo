@@ -15,7 +15,7 @@ export type DropdownContentProps =
  * Component for "DropdownContent" Slices.
  */
 const DropdownContent = ({slice}: DropdownContentProps): JSX.Element => {
-  const [activeIndex, setIndex] = useState(0)
+  const [activeIndex, setIndex] = useState<number | null>(0)
   const toggleContent = (index: number) => {
     if (activeIndex === index) {
       setIndex(null);
