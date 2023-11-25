@@ -136,7 +136,10 @@ interface ActionDocumentData {
 export type ActionDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ActionDocumentData>, "action", Lang>;
 
-type ActionslistDocumentDataSlicesSlice = ImageTextCardSlice | HeadlineSlice;
+type ActionslistDocumentDataSlicesSlice =
+  | DropdownContentSlice
+  | ImageTextCardSlice
+  | HeadlineSlice;
 
 /**
  * Content for ActionsList documents
@@ -268,7 +271,202 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-interface FooterNavigationDocumentData {}
+/**
+ * Item in *Footer Navigation → navigation_links*
+ */
+export interface FooterNavigationDocumentDataNavigationLinksItem {
+  /**
+   * label field in *Footer Navigation → navigation_links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.navigation_links[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * link field in *Footer Navigation → navigation_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.navigation_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Item in *Footer Navigation → social_links*
+ */
+export interface FooterNavigationDocumentDataSocialLinksItem {
+  /**
+   * label field in *Footer Navigation → social_links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.social_links[].label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * link field in *Footer Navigation → social_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Item in *Footer Navigation → contact*
+ */
+export interface FooterNavigationDocumentDataContactItem {
+  /**
+   * name field in *Footer Navigation → contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * address field in *Footer Navigation → contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[].address
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField;
+
+  /**
+   * phone field in *Footer Navigation → contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[].phone
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  phone: prismic.RichTextField;
+
+  /**
+   * mail field in *Footer Navigation → contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[].mail
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  mail: prismic.RichTextField;
+
+  /**
+   * logo field in *Footer Navigation → contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Footer Navigation → footer_links*
+ */
+export interface FooterNavigationDocumentDataFooterLinksItem {
+  /**
+   * copyright field in *Footer Navigation → footer_links*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.footer_links[].copyright
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copyright: prismic.RichTextField;
+
+  /**
+   * cgu field in *Footer Navigation → footer_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.footer_links[].cgu
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cgu: prismic.LinkField;
+
+  /**
+   * legal_mentions field in *Footer Navigation → footer_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.footer_links[].legal_mentions
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  legal_mentions: prismic.LinkField;
+}
+
+/**
+ * Content for Footer Navigation documents
+ */
+interface FooterNavigationDocumentData {
+  /**
+   * navigation_links field in *Footer Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.navigation_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navigation_links: prismic.GroupField<
+    FooterNavigationDocumentDataNavigationLinksItem
+  >;
+
+  /**
+   * social_links field in *Footer Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_links: prismic.GroupField<
+    Simplify<FooterNavigationDocumentDataSocialLinksItem>
+  >;
+
+  /**
+   * contact field in *Footer Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.contact[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  contact: prismic.GroupField<
+    Simplify<FooterNavigationDocumentDataContactItem>
+  >;
+
+  /**
+   * footer_links field in *Footer Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_navigation.footer_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_links: prismic.GroupField<
+    Simplify<FooterNavigationDocumentDataFooterLinksItem>
+  >;
+}
 
 /**
  * Footer Navigation document from Prismic
@@ -286,7 +484,7 @@ export type FooterNavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = IntroTextSlice | HeroSlice;
+type HomeDocumentDataSlicesSlice = CountryMapSlice | IntroTextSlice | HeroSlice;
 
 /**
  * Content for Home documents
@@ -466,6 +664,161 @@ export type AllDocumentTypes =
   | FooterNavigationDocument
   | HomeDocument
   | MainNavigationDocument;
+
+/**
+ * Primary content in *CountryMap → Primary*
+ */
+export interface CountryMapSliceDefaultPrimary {
+  /**
+   * title field in *CountryMap → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CountryMap → Items*
+ */
+export interface CountryMapSliceDefaultItem {
+  /**
+   * name field in *CountryMap → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * description field in *CountryMap → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * picture_1 field in *CountryMap → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.items[].picture_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture_1: prismic.ImageField<never>;
+
+  /**
+   * picture_2 field in *CountryMap → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.items[].picture_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture_2: prismic.ImageField<never>;
+
+  /**
+   * picture_3 field in *CountryMap → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: country_map.items[].picture_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture_3: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CountryMap Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CountryMapSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CountryMapSliceDefaultPrimary>,
+  Simplify<CountryMapSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CountryMap*
+ */
+type CountryMapSliceVariation = CountryMapSliceDefault;
+
+/**
+ * CountryMap Shared Slice
+ *
+ * - **API ID**: `country_map`
+ * - **Description**: CountryMap
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CountryMapSlice = prismic.SharedSlice<
+  "country_map",
+  CountryMapSliceVariation
+>;
+
+/**
+ * Primary content in *DropdownContent → Items*
+ */
+export interface DropdownContentSliceDefaultItem {
+  /**
+   * title field in *DropdownContent → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dropdown_content.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * text field in *DropdownContent → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dropdown_content.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for DropdownContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DropdownContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<DropdownContentSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *DropdownContent*
+ */
+type DropdownContentSliceVariation = DropdownContentSliceDefault;
+
+/**
+ * DropdownContent Shared Slice
+ *
+ * - **API ID**: `dropdown_content`
+ * - **Description**: DropdownContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DropdownContentSlice = prismic.SharedSlice<
+  "dropdown_content",
+  DropdownContentSliceVariation
+>;
 
 /**
  * Primary content in *Headline → Primary*
@@ -1031,6 +1384,10 @@ declare module "@prismicio/client" {
       ContactDocumentDataSlicesSlice,
       FooterNavigationDocument,
       FooterNavigationDocumentData,
+      FooterNavigationDocumentDataNavigationLinksItem,
+      FooterNavigationDocumentDataSocialLinksItem,
+      FooterNavigationDocumentDataContactItem,
+      FooterNavigationDocumentDataFooterLinksItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -1040,6 +1397,15 @@ declare module "@prismicio/client" {
       MainNavigationDocumentDataActionslinksItem,
       MainNavigationDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CountryMapSlice,
+      CountryMapSliceDefaultPrimary,
+      CountryMapSliceDefaultItem,
+      CountryMapSliceVariation,
+      CountryMapSliceDefault,
+      DropdownContentSlice,
+      DropdownContentSliceDefaultItem,
+      DropdownContentSliceVariation,
+      DropdownContentSliceDefault,
       HeadlineSlice,
       HeadlineSliceDefaultPrimary,
       HeadlineSliceMediaHeadlinePrimary,

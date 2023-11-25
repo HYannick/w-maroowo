@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  country_map: dynamic(() => import("./CountryMap")),
+  dropdown_content: dynamic(() => import("./DropdownContent")),
   headline: dynamic(() => import("./Headline")),
   hero: dynamic(() => import("./Hero")),
   image_text_card: dynamic(() => import("./ImageTextCard")),

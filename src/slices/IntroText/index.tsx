@@ -1,7 +1,8 @@
 'use client'
 import {Content} from "@prismicio/client";
-import {PrismicRichText, SliceComponentProps} from "@prismicio/react";
+import {SliceComponentProps} from "@prismicio/react";
 import DefaultIntroText from '@/slices/IntroText/variations/default/DefaultIntroText';
+import HeadlineIntroText from '@/slices/IntroText/variations/headline/HeadlineIntroText';
 
 /**
  * Props for `IntroText`.
@@ -18,6 +19,7 @@ const IntroText = ({slice}: IntroTextProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       {slice.variation === 'default' && <DefaultIntroText  slice={slice}/>}
+      {slice.variation === 'headline' && <HeadlineIntroText  slice={slice}/>}
     </section>
   );
 };

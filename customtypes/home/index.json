@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "country_map": {
+              "type": "SharedSlice"
+            },
             "intro_text": {
               "type": "SharedSlice"
             },
